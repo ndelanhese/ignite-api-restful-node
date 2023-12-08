@@ -7,6 +7,7 @@ app.get('/ping', () => {
 })
 
 app.listen({
+  // port: process.env.APP_PORT ?? 3333
   port: 3333
 }).then(() => {
 console.log('HTTP Server Running!');
