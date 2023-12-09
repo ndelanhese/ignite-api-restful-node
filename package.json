@@ -20,9 +20,11 @@
     "eslint": "^8.55.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
+    "supertest": "^6.3.3",
     "ts-node": "^10.9.2",
     "tsx": "^4.6.2",
     "typescript": "^5.3.3",
+    "@types/supertest": "^2.0.16",
     "vitest": "^1.0.3"
   },
   "dependencies": {
