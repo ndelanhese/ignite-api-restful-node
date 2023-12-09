@@ -3,7 +3,7 @@ import { env } from './env'
 
 export const config: Knex.Config = {
   client: env.DATABASE_CLIENT,
-  connection: { filename: env.DATABASE_CLIENT },
+  connection: { filename: env.DATABASE_URL },
   pool: {
     min: 2,
     max: 10,
@@ -11,7 +11,7 @@ export const config: Knex.Config = {
   migrations: {
     tableName: 'knex_migrations',
     extension: 'ts',
-    directory: './db/migrations',
+    directory: env.DATABASE_MIGRATIONS_DIRECTORY,
   },
   useNullAsDefault: true,
 }

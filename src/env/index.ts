@@ -4,7 +4,11 @@ import { z } from 'zod'
 const envSchema = z.object({
   DATABASE_URL: z.string(),
   DATABASE_CLIENT: z.string(),
-  APP_PORT: z.number().default(3333),
+  DATABASE_MIGRATIONS_DIRECTORY: z.string().default('./db/migrations'),
+  APP_PORT: z
+    .string()
+    .default('3333')
+    .transform((port) => Number(port)),
   NODE_ENV: z
     .enum(['production', 'development', 'staging', 'test'])
     .default('production'),
