@@ -1,6 +1,6 @@
-import 'dotenv/config'
 import fastify from 'fastify'
 import { knex } from './database'
+import { env } from './env'
 
 const app = fastify()
 
@@ -16,7 +16,7 @@ app.get('/ping', () => {
 
 app
   .listen({
-    port: process?.env?.APP_PORT ? Number(process.env.APP_PORT) : 3333,
+    port: env.APP_PORT,
   })
   .then(() => {
     console.log('HTTP Server Running!')

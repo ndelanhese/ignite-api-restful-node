@@ -1,15 +1,9 @@
-import 'dotenv/config'
 import { knex as setupKnex, Knex } from 'knex'
-
-const { DATABASE_URL, DATABASE_CLIENT } = process.env
-
-if (!DATABASE_URL || !DATABASE_CLIENT) {
-  throw new Error('Internal server error, database env not found')
-}
+import { env } from './env'
 
 export const config: Knex.Config = {
-  client: DATABASE_CLIENT,
-  connection: { filename: DATABASE_URL },
+  client: env.DATABASE_CLIENT,
+  connection: { filename: env.DATABASE_CLIENT },
   pool: {
     min: 2,
     max: 10,
